@@ -3,10 +3,11 @@ export interface Product {
     name: string;
     description: string;
     price: number;
-    active: boolean;
+    active?: boolean;
     path_image: string;
     ean: string
-    created_at:string
+    created_at: string
+    sales_location: string
 }
 
 

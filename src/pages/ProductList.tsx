@@ -65,10 +65,10 @@ const ProductPage = () => {
     fetchProducts(currentPage);
   }, [currentPage]);
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleAddProduct = () => {
-    navigate('/products/create'); 
+    navigate('/produtos/criar');
   };
 
   return (
@@ -76,7 +76,8 @@ const ProductPage = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-white p-2 font-semibold mb-4">
           <h1 className="text-black text-4xl text-center">
-            Consulte os seus Produtos cadastrados
+            Consulte os seus Produtos cadastrados na sua Loja ou realize o cadastro de novos
+            Produtos
           </h1>
         </div>
         <div className="border-t-4 border-blue-500 mb-4"></div>
@@ -91,7 +92,7 @@ const ProductPage = () => {
 
           <button
             className="py-2 px-4 bg-blue-500 text-white rounded"
-            onClick={handleAddProduct} 
+            onClick={handleAddProduct}
           >
             Adicionar Produto
           </button>
@@ -129,4 +130,3 @@ const ProductPage = () => {
 };
 
 export default ProductPage;
-  

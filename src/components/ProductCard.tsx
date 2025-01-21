@@ -1,13 +1,20 @@
 import { format } from 'date-fns';
 import { Product } from '../types/product';
+import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({ product }: { product: Product }) => {
+    const navigate = useNavigate();
+
     const formattedDate = format(new Date(product.created_at), 'dd/MM/yyyy');
 
     const formattedPrice = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',
     }).format(product.price);
+
+    const handleEdit = () => {
+        navigate(`/produtos/editar/${product.id}`);
+    };
 
     return (
         <div className="bg-white rounded-lg shadow-lg p-6 max-w-xs w-full transform transition-all duration-300 hover:scale-105 flex flex-col justify-between">
@@ -36,7 +43,7 @@ const ProductCard = ({ product }: { product: Product }) => {
                 <div className="mt-4 flex justify-start">
                     <button
                         className="py-2 px-4 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition-colors"
-                        onClick={() => alert('Aqui vai ir a edição')}
+                        onClick={handleEdit}
                     >
                         Editar
                     </button>
