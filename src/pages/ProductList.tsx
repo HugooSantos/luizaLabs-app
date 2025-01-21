@@ -6,6 +6,7 @@ import { Product } from '../types/product';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaSpinner } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const ProductPage = () => {
   const [showFilters, setShowFilters] = useState(false);
@@ -64,6 +65,12 @@ const ProductPage = () => {
     fetchProducts(currentPage);
   }, [currentPage]);
 
+  const navigate = useNavigate(); 
+
+  const handleAddProduct = () => {
+    navigate('/products/create'); 
+  };
+
   return (
     <div className="h-screen p-4">
       <div className="max-w-7xl mx-auto">
@@ -84,7 +91,7 @@ const ProductPage = () => {
 
           <button
             className="py-2 px-4 bg-blue-500 text-white rounded"
-            onClick={() => alert('Abrir tela de cadastro de produto')}
+            onClick={handleAddProduct} 
           >
             Adicionar Produto
           </button>
@@ -122,3 +129,4 @@ const ProductPage = () => {
 };
 
 export default ProductPage;
+  
