@@ -1,50 +1,108 @@
-# React + TypeScript + Vite
+# APP de Cadastro de Produtos 📦
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição
 
-Currently, two official plugins are available:
+Este é o frontend desenvolvido utilizando **React** e **Vite**, que consome a API **[LuizaLabs API](https://github.com/HugooSantos/luizaLabs-api)** para gerenciar e exibir os produtos cadastrados.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview do Projeto 🌍
 
-## Expanding the ESLint configuration
+### Tela inicial 🏠
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+A tela inicial apresenta uma lista de produtos com paginação, permitindo visualizar um número limitado de itens por vez. A navegação entre as páginas é fácil, facilitando a busca e o gerenciamento de produtos.
 
-- Configure the top-level `parserOptions` property like this:
+![Grid de produtos](./image-grid.png)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Filtros 🔍
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+A tela inicial oferece filtros para facilitar a busca de produtos. Você pode procurar por nome, filtrar por status de ativo (ativo ou inativo) e escolher o local de venda.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+![Filtro de produtos](./image-filter.png)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Paginação 📑
+
+A paginação permite que os resultados sejam exibidos em várias páginas, facilitando a navegação por grandes volumes de produtos. Você pode navegar entre as páginas utilizando os controles de página, melhorando a experiência ao visualizar os produtos de forma organizada e eficiente.
+
+![Paginação de produtos](./image-paginate.png)
+
+### Criação dos Produtos ➕
+
+A tela de criação de produtos permite adicionar novos itens ao sistema. Nela, você pode preencher informações essenciais como nome, imagem, EAN, preço, descrição e localização de venda do produto. Após o preenchimento dos campos obrigatórios, é possível salvar o produto, que será automaticamente adicionado ao banco de dados e ficará disponível para consulta e manipulação.
+
+![Criação de produtos](./image-create-screen.png)
+
+### Edição dos Produtos ✏️
+
+A tela de edição de produtos permite modificar as informações de um produto existente. Você pode atualizar campos como nome, imagem, EAN, preço, descrição e localização de venda. Ao fazer alterações, basta salvar as mudanças para que elas sejam atualizadas no banco de dados.
+
+![Edição de produtos](./image-edit-screen.png)
+
+## Tecnologias e Bibliotecas Utilizadas 🛠️
+
+- **React**: Biblioteca para construção de interfaces de usuário.
+- **Vite**: Ferramenta de build e desenvolvimento rápido para projetos frontend.
+- **TailwindCSS**: Framework CSS para criação de layouts rápidos e responsivos.
+- **Formik**: Biblioteca para criação e gerenciamento de formulários em React.
+- **Yup**: Biblioteca para validação de esquemas de dados.
+- **React Router DOM**: Biblioteca para navegação entre páginas em uma aplicação React.
+- **React Icons**: Conjunto de ícones para uso em projetos React.
+- **React Toastify**: Biblioteca para exibição de notificações no frontend.
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática.
+- **ESLint**: Ferramenta para identificar e corrigir problemas no código JavaScript/TypeScript.
+
+
+## Como Executar 🏃‍♂️
+    
+1. **Clonar e Instalar Dependências**
+    
+    via ssh:
+    ```bash
+    git clone git@github.com:HugooSantos/luizaLabs-app.git
+    ```
+    via https:
+
+    ```bash
+    git clone https://github.com/HugooSantos/luizaLabs-app.git
+    ```
+    
+    entre no diretorio:
+
+    ```bash
+    cd luizaLabs-app
+    ```
+
+    Copie o arquivo .env.example para um novo arquivo .env e adicione as informações da url da api, caso use a api citada somente copiar:
+    ```bash
+    cp .env.example .env
+    ```
+
+2. **Verificar a Versão do Node.js**: 
+
+   Este projeto foi desenvolvido utilizando o Node.js 18.x.x. Para garantir que você está utilizando a versão correta, execute:
+
+   ```bash
+   node -v
+   ```
+
+   Caso a versão do Node.js não seja a recomendada, você pode usar o nvm (Node Version Manager) para gerenciar diferentes versões do Node. Para instalar a versão correta, execute:
+
+   ```bash
+   nvm install 18
+   nvm use 18
+   ```
+
+3. **Instalar as Dependências**:
+
+   Após garantir que você está utilizando a versão correta do Node.js, instale as dependências do projeto:
+
+   ```bash
+   npm install
+   ```
+
+4. **Rodar o Projeto em Ambiente de Desenvolvimento**:
+  
+   Agora, você pode rodar o projeto em modo de desenvolvimento. Execute o seguinte comando:
+ 
+   ```bash
+   npm run dev
+   ```
+   
